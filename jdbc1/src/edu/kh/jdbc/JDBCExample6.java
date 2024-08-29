@@ -62,7 +62,7 @@ public class JDBCExample6 {
 			
 			pstmt.setString(1, name);
 			pstmt.setString(2, id);
-			pstmt.setString(3, name);
+			pstmt.setString(3, pw);
 			// -> SQL 세팅 끝! -> 실행
 			
 			//PreparedStatement를 이용하여 SQL 실행시
