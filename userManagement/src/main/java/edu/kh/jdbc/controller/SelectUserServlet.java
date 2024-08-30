@@ -1,11 +1,6 @@
 package edu.kh.jdbc.controller;
 
 import java.io.IOException;
-import java.net.http.HttpRequest;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.kh.jdbc.dto.User;
@@ -16,33 +11,39 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/selectAll")
-public class SelectAllServlet extends HttpServlet {
 
+
+@WebServlet("/selectUser")
+public class SelectUserServlet extends HttpServlet{
+
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
+		
+		
+		
 		try {
+			//전달 받은 파라미터 얻어오기
+			//전달 받아온건 String 
+			String userNo = req.getParameter("userNo");
+			
 			UserService service = new UserServiceImpl();
 			
-			List<User> userList = service.selectAll(); 
-//sevice -> dao
 
-			req.setAttribute("userList", userList);
-	//넘겨주기
+			User user = service.selectUser(userNo);
 			
-			String path = "/WEB-INF/views/selectAll.jsp";
+			req.setAttribute("u", user);
+			//jsp로 보내는.
+			
+			String path = "/WEB-INF/views/selectUser.jsp";
 			
 			req.getRequestDispatcher(path).forward(req, resp);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
+		
 	}
-	
-	
 }
