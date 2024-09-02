@@ -14,6 +14,10 @@ public class UserServiceImpl implements UserService{
 	
 	// 필드
 	private UserDao dao = new UserDaoImpl();
+	//다오하네 넘겨주기.
+	
+	
+	
 	
 
 	@Override

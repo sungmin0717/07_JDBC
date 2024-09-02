@@ -21,10 +21,12 @@ public class UserDaoImpl implements UserDao {
 	// JDBC 객체 참조 변수 + Properties 참조 변수 선언
 	private Statement stmt;
 	private PreparedStatement pstmt;
+	// 준비된 Statement
 	private ResultSet rs;
-
+	//DB에 있는 저장값을 가져오는.
 	private Properties prop;
 	// -> K,V가 모두 String인 Map, 파일 입출력이 쉬움
+	// sql을 따로 작성한 것을 가져오는
 
 	// 기본 생성자
 	public UserDaoImpl() {
@@ -154,7 +156,7 @@ public class UserDaoImpl implements UserDao {
 
 			while (rs.next()) {
 				int userNo = rs.getInt("USER_NO");
-				String userId = rs.getString("USER_ID");
+				String userId = rs.getString("아이디");
 				String userPw = rs.getString("USER_PW");
 				String userName = rs.getString("USER_NAME");
 				String enrollDate = rs.getString("ENROLL_DATE");

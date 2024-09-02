@@ -33,6 +33,10 @@
     <button> -등록해주쎼요- </button>
   </div>
 
+  <div>
+    <button name = "back"> 뒤로 돌아가기.</button>
+  </div>
+
 </form>
 
 
